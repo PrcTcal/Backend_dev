@@ -15,4 +15,4 @@ solution:<br>
     - mybatis-spring-boot-starter : version needed<br>
   2) check spring.datasource.driverClassName in application.properties<br>
     - type 'com.mysql.cj.jdbc.Driver' if you're using mysql connector version over 8.0<br>
-    - check if there's any blank after 'com.mysql.cj.jdbc.Driver' -> <p style="color:red">my case</p><br>
+    - check if there's any blank after 'com.mysql.cj.jdbc.Driver' -> my case<br>
