@@ -3,7 +3,6 @@ package com.glen.dev.controller;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.glen.dev.dto.PostsMainResponseDto;
 import com.glen.dev.jpa.Posts;
 import com.glen.dev.service.postService;
 import com.glen.dev.service.testService;
@@ -53,8 +53,8 @@ public class TestRestController {
 	
 	@ResponseBody
 	@RequestMapping(value="updateById", method = RequestMethod.PUT)
-	public boolean updateById(@RequestParam String id, @RequestParam String name) {
-		return pservice.updateById(id, name);
+	public void updateById(@RequestParam String id, @RequestParam String name) {
+		pservice.updateById(id, name);
 	}
 	
 	@ResponseBody
@@ -62,5 +62,15 @@ public class TestRestController {
 	public ResponseEntity<Void> deleteById(@RequestParam String id) {
 		pservice.deleteById(id);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+	}
+	
+	/* 
+	 * cannot be cast to com.glen.dev.jpa.Posts 에러 발생
+	 * PostsService에서 posts -> PostsMainResponseDto로 형변환이 안되서 그런
+	*/
+	@ResponseBody
+	@RequestMapping(value="/findAllDesc", method = RequestMethod.GET)
+	public List<PostsMainResponseDto> findAllDesc(){
+		return pservice.findAllDesc();
 	}
 }

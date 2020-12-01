@@ -31,8 +31,8 @@ function save(){
 	$.ajax({
 		type:"POST",
 		url:"/save",
-		data:{id:"asd123",
-			name:"glen"},
+		data:{id: document.getElementById('id').value,
+			name: document.getElementById('name').value},
 		success:(data)=>{
 			console.log(data);
 		}
@@ -42,7 +42,7 @@ function findById(){
 	$.ajax({
 		type:"GET",
 		url:"/findById",
-		data:{id:"asd123"},
+		data:{id:document.getElementById('id').value},
 		success:(data)=>{
 			console.log(data);
 		}
@@ -53,8 +53,8 @@ function updateById(){
 	$.ajax({
 		type:"PUT",
 		url:"/updateById",
-		data:{id:"asd123",
-			name:"park"},
+		data:{id:document.getElementById('id').value,
+			name:document.getElementById('name').value},
 		success:(data)=>{
 			console.log(data);
 		}
@@ -65,9 +65,11 @@ function deleteById(){
 	$.ajax({
 		type:"DELETE",
 		url:"/deleteById",
-		data:{id:"asd123"},
+		data:{id:document.getElementById('id').value},
 		success:(data)=>{
 			console.log(data);
 		}
 	});
 }
+
+
