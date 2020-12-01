@@ -17,13 +17,13 @@ import com.glen.dev.service.postService;
 import com.glen.dev.service.testService;
 import com.glen.dev.vo.testVO;
 
+import lombok.AllArgsConstructor;
+
 @RestController
+@AllArgsConstructor
 public class TestRestController {
 
-	@Autowired
 	private testService service;
-	
-	@Autowired
 	private postService pservice;
 	
 	@RequestMapping(value="/getValue")

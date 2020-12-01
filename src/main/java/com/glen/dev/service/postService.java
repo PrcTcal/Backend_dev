@@ -16,12 +16,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.glen.dev.jpa.Posts;
 import com.glen.dev.jpa.postsRepository;
 
+import lombok.AllArgsConstructor;
+
 @Service
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@AllArgsConstructor
 public class postService {
 	
-	@Autowired
 	private postsRepository repository;
 	
 	@After
